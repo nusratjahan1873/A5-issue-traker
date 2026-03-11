@@ -72,4 +72,18 @@ const filterIssues =(status)=>{
     });
 };
 
+// search issue
+const searchIssue =()=>{
+    const text =
+    document.getElementById("search-input").value.toLowerCase();
+
+    fetch(API)
+    .then(res=> res.json())
+    .then(data=>{
+        const filtered = data.data.filter(issue =>
+            issue.title.toLowerCase().includes(text)      
+        );
+        displayIssues(filtered);
+    })
+}
 
