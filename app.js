@@ -87,3 +87,21 @@ const searchIssue =()=>{
     })
 }
 
+// open modal
+const openModal = (title, description)=>{
+    const modal =document.getElementById("modal");
+    modal.classList.remove("hidden");
+    modal.querySelector("h2").innerText=title;
+    modal.querySelector("p").innerText=description;
+
+};
+
+
+const closeModel = () =>{
+    document.getElementById("modal").classList.add("hidden");
+};
+ 
+
+loadIssues();
+
+
