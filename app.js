@@ -13,3 +13,18 @@ const manageSpinner=(status)=>{
         spinner.classList.add("hidden")
     }
 };
+  
+// Load Issues
+
+const loadIssues = ()=>{
+    manageSpinner(true);
+
+    fetch(API)
+    .then(res => res.json())
+    .then(data=>{
+        displayIssues(data.data);
+        document.getElementById("issue-count").innerText=
+        data.data.length;
+        manageSpinner(false);
+    });
+};
